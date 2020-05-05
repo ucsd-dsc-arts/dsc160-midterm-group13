@@ -7,7 +7,7 @@ Project Team Members:
 - Firstname Lastname2, name2@ucsd.edu
 - Xinrui Zhan, x5zhan@ucsd.edu
 - Amir Uqdah, auqdah@ucsd.edu
-- Firstname Lastname5, name5@ucsd.edu
+- Yiheng Ye, yiy291@ucsd.edu
 
 ## Abstract
 

@@ -4,7 +4,7 @@ DSC160 Data Science and the Arts - Midterm Project Repository - Spring 2020
 
 Project Team Members: 
 - Firstname Lastname1, name1@ucsd.edu
-- Firstname Lastname2, name2@ucsd.edu
+- Sabrina Ho, ssh026@ucsd.edu
 - Xinrui Zhan, x5zhan@ucsd.edu
 - Amir Uqdah, auqdah@ucsd.edu
 - Yiheng Ye, yiy291@ucsd.edu

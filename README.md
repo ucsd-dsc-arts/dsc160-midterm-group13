@@ -38,10 +38,8 @@ This notebook preprocesses the scenes we scraped using the first notebook and ex
 - Analysis:
   - Features:
       - Brightness: We calculate the brightness for each image by calculating the mean of the third channel in image hsv format. The bigger the result, the more bright the image is. The brightness data will be used in calculating PAD (Pleasure, Arousal, Dominance). Below are the images with the biggest and smallest brightness in the movie toy story 4.
-      ![toy_story_4-Scene-11-0; Brightness: 31.37](img/1.png)
       <img src="img/1.png" width="500" class="center" alt="toy_story_4-Scene-11-0; Brightness: 31.37">
-      
-      ![ toy_story_4-Scene-12-2; Brightness:234.97](img/2.png)
+      <img src="img/2.png" width="500" class="center" alt="toy_story_4-Scene-12-2; Brightness:234.97">
       
       - Saturation: We calculate the saturation for each image by calculating the mean of the second channel in image hsv format. The bigger the result, the more saturated the image is. The saturation data will be used in calculating PAD (Pleasure, Arousal, Dominance). Below are the images with the biggest and smallest saturation in the movie Big Hero 6.
       ![big_hero_6-Scene-23-1 Mean Saturation: 52.79](img/3.png)

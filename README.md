@@ -10,6 +10,9 @@ Project Team Members:
 - Byungheon Jeong, b1jeong@ucsd.edu
 
 
+
+![alt text](https://github.com/ucsd-dsc-arts/dsc160-midterm-group13/blob/master/results/down.png "big_hero_6_valence")
+
 ## Abstract
 
 (10 points) 

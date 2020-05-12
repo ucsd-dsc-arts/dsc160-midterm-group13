@@ -10,9 +10,6 @@ Project Team Members:
 - Byungheon Jeong, b1jeong@ucsd.edu
 
 
-
-![alt text](https://github.com/ucsd-dsc-arts/dsc160-midterm-group13/blob/master/results/down.png "big_hero_6_valence")
-
 ## Abstract
 
 (10 points) 
@@ -41,15 +38,27 @@ This notebook preprocesses the scenes we scraped using the first notebook and ex
 - Analysis:
   - Features:
       - Brightness: We calculate the brightness for each image by calculating the mean of the third channel in image hsv format. The bigger the result, the more bright the image is. The brightness data will be used in calculating PAD (Pleasure, Arousal, Dominance). Below are the images with the biggest and smallest brightness in the movie toy story 4.
-      ![toy_story_4-Scene-11-0; Brightness: 31.37](/Users/sabrinaho/Desktop/img/1.png) 
-     
+      ![toy_story_4-Scene-11-0; Brightness: 31.37](img/1.png)
+      ![ toy_story_4-Scene-12-2; Brightness:234.97](img/2.png)
+      
       - Saturation: We calculate the saturation for each image by calculating the mean of the second channel in image hsv format. The bigger the result, the more saturated the image is. The saturation data will be used in calculating PAD (Pleasure, Arousal, Dominance). Below are the images with the biggest and smallest saturation in the movie Big Hero 6.
+      ![big_hero_6-Scene-23-1 Mean Saturation: 52.79](img/3.png)
+      ![big_hero_6-Scene-11-0 Mean Saturation: 167.84](img/4.png)
+      
       - Blur: While skimming through our dataset, we found out that some images are blur. Also, we thought that the degree of blur could be related to the emotion: A more blur scene could have a higher ability to contain certain emotion’s information such as surprise, excitement or fear. Based on https://www.pyimagesearch.com/2015/09/07/blur-detection-with-opencv/, we implement a method to calculate the degree of blur in a single image. The higher the number of degrees of blur, the less blur this image is. Below are the least blur and most blur images in movie Cars 3. 
+      ![cars_3-Scene-17-0; Degree of blur: 703.00](img/5.png)
+      ![cars_3-Scene-0-2; Degree of blur: 22.43](img/6.png)
+      
       - PAD: Based on Machajdik and Hanbury’s paper (http://www.imageemotion.org/machajdik_hanbury_affective_image_classification.pdf), we calculate the degree of Pleasure, Arousal, and Dominance based on the three equations. We will use there three in our baseline model. 
-      - Faces: Tbd 
+      ![](img/7.png)
+      
+      - Faces: Used face emotion recognition to suggest strength of the emotion estimated. Classified using six different emotions.
       - Optical flow: We used the norm of the optical flow vector to represent how much changes are inside of two images’ transition. Since we have three caps per scene, we calculate both 2 transitions and get the mean of the norms to represent how many changes are inside of a scene. 
   - Baseline model(equations from the paper): **Baseline Model's Evaluation and Results.ipynb**
 Based on Oana et.al’s paper, we labeled all scenes with 6 different emotions calculating by equations below. Here, we use the pleasure to represent valence. The prediction are stored in the baseline_celana_df.csv
+![](img/8.png)
+![Big Hero 6 (Valence/Pleasure and Arousal Plotted)](img/9.png)
+
   - Logistic regression model trained on outside dataset: **model trained on outside data.ipynb**
       - We found an emotion labeled images dataset (http://www.imageemotion.org/testImages_artphoto.zip). We select images with label anger, joy, disgust, fear, and sadness and we use all features we extracted (except the optical flow, since we are training on static single images) to train a logistic regression model and labeling our screencaps for all scenes with corresponding emotions. The predictions are stored in logistic_regression_trained_on_outside.csv.
   - An unsupervised clustering: Model unsupervised and viz.ipynb
@@ -79,6 +88,34 @@ Based on Oana et.al’s paper, we labeled all scenes with 6 different emotions c
 - Output visualization notebooks in pdf form: Model unsupervised and viz.pdf, Viz of supervised, Dimension Reduction.pdf. This two pdf visualize our models’ result (unsupervised and supervised) after dimension reduction of t-sne. The former one also contains some other visualization about features extracted. Later we added More viz about feature.pdf to visualize more details of our features.
 
 - Csv tables record feature extraction and modeling output for supervised learning: clean_df.csv report features extracted from scenes while logistic_regression_trained_on_outside.csv and baseline_clean_df.csv record model predictions using those features
+  - Important Images about Result plots:
+    - Correlation between dominance and pleasure:
+    ![](img/10.png)
+    - tSNE graphs for model prediction:
+    ![Purple means “Joy”, yellow means “Surprise”](img/11.png)
+    ![Blue means “Sad”, Purple means “Joy”, Yellow means “surprise”](img/12.png)
+
+  - Unsupervised learning:
+    - tSNE graph for dimension reduction when perplexity=5:
+    ![](img/13.png)
+    - K-means for 6 clusters:
+    ![](img/14.png)
+    - Emotion shift based on 3 most possible emotions generated by baseline model (Higher means happier):
+    ![](img/15.png)
+    ![](img/16.png)
+    ![](img/17.png)
+    ![](img/18.png)
+    ![](img/19.png)
+    ![](img/20.png)
+
+- Important Tables about feature:
+![](img/21.png)
+
+Also, in the result directory. We created two gifs. One is the flow of images that are labeled with joy in logistic regression model in the whole dataset and one is the opposition images flow we created based on joy images. 
+
+
+
+
 
 ## Discussion
 
@@ -91,6 +128,8 @@ The reason this finding is significant is because it suggests that the success o
 Regarding the original artist’s response, we think our results would be welcomed and useful. Emotions have long been considered as subjective concepts and major factors in film making. As a result, even though film makers are trying hard to create the atmosphere in scenes for certain emotions they wanna express, what audience actually feels from it could differ. To some degree, our analysis offers a way to quantify the audience’s subjective emotional feelings and could be a good feedback for filmmakers. Also, the general patterns could be drawn from doing similar analysis on a larger dataset, and the results could be used for filmmakers to produce more rendering movies. 
 
 In a broader sense, this proves that subtle changes in color schemes can have large emotional shifts in the audience. This suggests that color choice in media is not necessarily arbitrary, but instead calculated and shared among viewers to produce certain emotional responses. This also proves that we, as the receiver of information of all kinds of mediums, do not own the control of ourselves’ feeling generation. Human beings’ emotions and feelings are easily manipulated and affected. See the below images. The second row of images only changed the brightness and saturation of the ones in the first row, but we can easily detect the different emotions feelings that two rows of images express.
+
+![](img/22.png)
 
 In the future we hope to analyze music along with the image features to produce more holistic results as these films are a combination of image and sound. We also hope to make our findings more accessible by making web visualizations for the public to access. Moreover, we hope to create our own labeled data and to train on them using different neural networks to get the best result, and perhaps create our own model. We believe that with the large amount of data, we can get a good result if we get to expand on this project.
 

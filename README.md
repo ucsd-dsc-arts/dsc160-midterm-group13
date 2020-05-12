@@ -1,4 +1,4 @@
-# Project Title
+# Exploring Emotional Valence in Pixar Films
 
 DSC160 Data Science and the Arts - Midterm Project Repository - Spring 2020
 

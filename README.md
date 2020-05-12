@@ -38,6 +38,8 @@ This notebook preprocesses the scenes we scraped using the first notebook and ex
 - Analysis:
   - Features:
       - Brightness: We calculate the brightness for each image by calculating the mean of the third channel in image hsv format. The bigger the result, the more bright the image is. The brightness data will be used in calculating PAD (Pleasure, Arousal, Dominance). Below are the images with the biggest and smallest brightness in the movie toy story 4.
+      ![toy_story_4-Scene-11-0; Brightness: 31.37](/Users/sabrinaho/Desktop/img/1.png) 
+     
       - Saturation: We calculate the saturation for each image by calculating the mean of the second channel in image hsv format. The bigger the result, the more saturated the image is. The saturation data will be used in calculating PAD (Pleasure, Arousal, Dominance). Below are the images with the biggest and smallest saturation in the movie Big Hero 6.
       - Blur: While skimming through our dataset, we found out that some images are blur. Also, we thought that the degree of blur could be related to the emotion: A more blur scene could have a higher ability to contain certain emotion’s information such as surprise, excitement or fear. Based on https://www.pyimagesearch.com/2015/09/07/blur-detection-with-opencv/, we implement a method to calculate the degree of blur in a single image. The higher the number of degrees of blur, the less blur this image is. Below are the least blur and most blur images in movie Cars 3. 
       - PAD: Based on Machajdik and Hanbury’s paper (http://www.imageemotion.org/machajdik_hanbury_affective_image_classification.pdf), we calculate the degree of Pleasure, Arousal, and Dominance based on the three equations. We will use there three in our baseline model. 

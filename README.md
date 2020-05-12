@@ -44,16 +44,22 @@ This notebook preprocesses the scenes we scraped using the first notebook and ex
     </p>
       
       - Saturation: We calculate the saturation for each image by calculating the mean of the second channel in image hsv format. The bigger the result, the more saturated the image is. The saturation data will be used in calculating PAD (Pleasure, Arousal, Dominance). Below are the images with the biggest and smallest saturation in the movie Big Hero 6.
+    <p align="center">
       <img src="img/3.png" width="500" alt="big_hero_6-Scene-23-1 Mean Saturation: 52.79" align="center">
       <img src="img/4.png" width="500" alt="big_hero_6-Scene-11-0 Mean Saturation: 167.84" align="center">
-      
+    </p>
+    
       - Blur: While skimming through our dataset, we found out that some images are blur. Also, we thought that the degree of blur could be related to the emotion: A more blur scene could have a higher ability to contain certain emotion’s information such as surprise, excitement or fear. Based on https://www.pyimagesearch.com/2015/09/07/blur-detection-with-opencv/, we implement a method to calculate the degree of blur in a single image. The higher the number of degrees of blur, the less blur this image is. Below are the least blur and most blur images in movie Cars 3. 
-      <img src="img/5.png" width="500" alt="cars_3-Scene-17-0; Degree of blur: 703.00" align="center">
-      <img src="img/6.png" width="500" alt="cars_3-Scene-0-2; Degree of blur: 22.43" align="center">
-      
+   <p align="center">
+     <img src="img/5.png" width="500" alt="cars_3-Scene-17-0; Degree of blur: 703.00" align="center">
+     <img src="img/6.png" width="500" alt="cars_3-Scene-0-2; Degree of blur: 22.43" align="center">
+  </p>
+    
       - PAD: Based on Machajdik and Hanbury’s paper (http://www.imageemotion.org/machajdik_hanbury_affective_image_classification.pdf), we calculate the degree of Pleasure, Arousal, and Dominance based on the three equations. We will use there three in our baseline model. 
+    <p align="center">
       <img src="img/7.png" width="500" align="center">
-      
+   </p>
+   
       - Faces: Used face emotion recognition to suggest strength of the emotion estimated. Classified using six different emotions.
       - Optical flow: We used the norm of the optical flow vector to represent how much changes are inside of two images’ transition. Since we have three caps per scene, we calculate both 2 transitions and get the mean of the norms to represent how many changes are inside of a scene. 
   - Baseline model(equations from the paper): **Baseline Model's Evaluation and Results.ipynb**

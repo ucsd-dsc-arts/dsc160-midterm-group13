@@ -66,49 +66,64 @@ Based on Oana et.al’s paper, we labeled all scenes with 6 different emotions c
     - This notebook calculates the optical flows between images using the library cv2. It returns an array in order to calculate the distances. 
 
 
-
-
-
-
-
-
 ## Results
 
 (30 points) 
 
-This section will contain links to documentation of your results. This can include figures, sound files, videos, bitmaps, as appropriate to your domain of analysis. Each result should include a brief textual description, and all should be listed below: 
+- Output visualization notebooks in pdf form: Model unsupervised and viz.pdf, Viz of supervised, Dimension Reduction.pdf. This two pdf visualize our models’ result (unsupervised and supervised) after dimension reduction of t-sne. The former one also contains some other visualization about features extracted. Later we added More viz about feature.pdf to visualize more details of our features.
 
-- image files (`.jpg`, `.png` or whatever else is appropriate)
-- audio files (`.wav`, `.mp3`)
-- written text as `.pdf`
+- Csv tables record feature extraction and modeling output for supervised learning: clean_df.csv report features extracted from scenes while logistic_regression_trained_on_outside.csv and baseline_clean_df.csv record model predictions using those features
 
 ## Discussion
 
 (30 points, three to five paragraphs)
 
-The first paragraph should be a short summary describing your results.
+Our data shows that there are some identifiable patterns in “Pixar” film. That is, they generally start happy and after some struggles (intense emotional shifts), there is a return to happiness. There is potential for improvement regarding our log prediction, but this can easily be improved later.
 
-The subsequent paragraphs could address questions including:
-- Why is this culturally relevant?
-- How does your computational approach differ from the traditional art historical, musicological, manuel/subjective approach to analyzing your cultural subject? 
-- How do you think the original artists/musicians would respond to this type of analysis? Would it change/inform their practice in some way?
-- How do your results relate to broader social, cultural, economic political, etc., issues? 
-- In what future directions could you expand this work?
+The reason this finding is significant is because it suggests that the success of Pixar films' storytelling is largely formulaic and it can potentially allow us to group and analyze similar films based on their emotional shifts and story arcs. I think this sort of finding proves the importance of color and lighting when storytelling and would ultimately show that artists have a very powerful influence over the viewer and emotional reception of the film.
+
+Regarding the original artist’s response, we think our results would be welcomed and useful. Emotions have long been considered as subjective concepts and major factors in film making. As a result, even though film makers are trying hard to create the atmosphere in scenes for certain emotions they wanna express, what audience actually feels from it could differ. To some degree, our analysis offers a way to quantify the audience’s subjective emotional feelings and could be a good feedback for filmmakers. Also, the general patterns could be drawn from doing similar analysis on a larger dataset, and the results could be used for filmmakers to produce more rendering movies. 
+
+In a broader sense, this proves that subtle changes in color schemes can have large emotional shifts in the audience. This suggests that color choice in media is not necessarily arbitrary, but instead calculated and shared among viewers to produce certain emotional responses. This also proves that we, as the receiver of information of all kinds of mediums, do not own the control of ourselves’ feeling generation. Human beings’ emotions and feelings are easily manipulated and affected. See the below images. The second row of images only changed the brightness and saturation of the ones in the first row, but we can easily detect the different emotions feelings that two rows of images express.
+
+In the future we hope to analyze music along with the image features to produce more holistic results as these films are a combination of image and sound. We also hope to make our findings more accessible by making web visualizations for the public to access. Moreover, we hope to create our own labeled data and to train on them using different neural networks to get the best result, and perhaps create our own model. We believe that with the large amount of data, we can get a good result if we get to expand on this project.
+
 
 ## Team Roles
 
-Provide an account of individual members and their efforts/contributions to the specific tasks you accomplished.
+- Amir Uqdah: Amir came up with the idea of this project. He did research on the topic then suggested it to the team. Amir also wrote the baseline model and extended the facial recognition model.
+- Sabrina Ho: Sabrina combined pieces of the project together into the final report and edited the README on GitHub. She also did analysis on the movie Big Hero 6.
+- Xinrui Zhan: Xinrui wrote the scarping function for team members to use in order to collect our data from the website. He also worked on the baseline model and the logistic regression model. Nonetheless, Xinrui organized our GitHub repository and categorized each file into its corresponding files. 
+- Yiheng Ye: Yiheng worked on the unsupervised model and the visualization for the project included tSNE graphs. He is also involved in writing the report.
+- Byungheon Jeong: Byungheon wrote the optical flow function that was used to analyze our data. He also contributed in writing the report.
+
 
 ## Technical Notes and Dependencies
 
-Any implementation details or notes we need to repeat your work. 
-- Additional libraries you are using for this project
-- Does this code require other pip packages, software, etc?
-- Does this code need to run on some other (non-datahub) platform? (CoLab, etc.)
+The following are the libraries we used in this project. All code can be run on datahub/jupyter notebook. Some datapath may need adjustment and we suggest running the notebooks outside the code folder or you can directly look at the output PDFs.
+- Packages used for Feature Extraction:
+  - Opencv2
+- Packages used for visualization:
+  - Seaborn
+  - Matplotlib 
+  - Axes3D
+- Packages used for modeling:
+  - Scikit-learn
+  - Scipy 
+
 
 ## Reference
 
-References to any papers, techniques, repositories you used:
 - Papers
+  - [1] https://arxiv.org/pdf/1712.02896.pdf 
+  https://l.messenger.com/l.php?u=https%3A%2F%2Fcdn.fbsbx.com%2Fv%2Ft59.2708-21%2F91130122_150218316330669_7271658521534398464_n.pdf%2FEmotion_Classification_Based_on_Biophysical_Signal.pdf%3F_nc_cat%3D109%26_nc_sid%3D0cab14%26_nc_ohc%3DpdmcWz3ftsMAX-rFqnw%26_nc_ht%3Dcdn.fbsbx.com%26oh%3D79d131248ac81c681125e33979988560%26oe%3D5EBB8746%26dl%3D1&h=AT1bCJwYwLiM-VOt0k4_Eycj50YXn7T3cP50Q9mWGGpuEZVbxFpIbYOlLHZOXH1VkY9v-oQV3FkAxAIPB0ktwTHm55WeJXxYtkYndg3I3eMVHMhmu3cOzBk3SGM84_TgbEPlvm4RhjxgxbxofVWeYLh_rI0
+  - [2] https://sosuperic.github.io/a-darn-good-yarn-website/ 
+  - [3] https://arxiv.org/pdf/1712.02896.pdf 
+  - [4] http://www.imageemotion.org/machajdik_hanbury_affective_image_classification.pdf
+- Data
+  - [1] https://animationscreencaps.com/
+  - [2] http://www.imageemotion.org/testImages_artphoto.zip
 - Repositories
 - Blog posts
+  - [1] https://sosuperic.github.io/a-darn-good-yarn-website/
+

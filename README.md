@@ -13,40 +13,30 @@ Project Team Members:
 
 (10 points) 
 
-For the project proposal, please write a short abstact addressing the questions below. You should replace the entire contents of this section with one to two paragraphs addressing the following:
+  This project aims to compare the changes in emotion in Pixar movie scenes based on the frames of different pixar movies. We used  30 scenes 50 seconds apart from each other and 3 frames within each scene in the popular animated Pixar movies Big Hero 6, Incredibles 2, Toy Story 4, Cars 3, and Wall E.  We attempt to qualify the emotion content of each scene based on features of images such as warmth of colors, brightness, and  hue saturation value. We expect to see a correlation between the features used in the film and the emotions that are perceived or felt during the film. Also, we want to figure out the general trend of “how does a Pixar movie ‘feel’ over time”. After extracting features we need, we will build our own color-emotion map to label our data. Then we will use them to feed our classification models. Afterwards, we will make several analysis visualizations such as cluster plots or sound wave plots using online tools or python libraries. We plan to display our results in the form of visualizations such as t-SNE graphs or bitmaps.
+  As animated filmmakers have full control over the visual medium, visual cues signaling the changing of emotion in animated films are always intentional. As such, this analysis can shed light on what visual features popular culture looks for different emotions.
 
-- What is the data set that you are going to analyze?
-- What is your research question? 
-- What is your hypothesis about the results? 
-- What features of the data will you use to address your question? 
-- What techniques and software tools will you use to extract these features?
-- What analytic techniques will you use?
-- What forms will your results take? (graphs, charts, images, sonification, Wordles, etc)
-- How are you expanding on topics we have covered in class? 
-- Why is it interesting? (personally, culturally, politically, other)
 
 ## Data
 
 (10 points) 
 
-This section will describe your data and its origins. Each item should contain a name of the data source, a link to the source, and any necessary background information such as:
-- What is your cultural data source? 
-- When was it made? 
-- Who created the works? 
-- Is it digital native, or is it some kind of scan, recording, photo, etc., of an analog form? 
+  Our data is collected from the website Animation Screencaps (link: https://animationscreencaps.com). This website contains over 500 movies including the series of Disney, Pixar, and so much more. As mentioned earlier, in this project we are using the following movies’ screencaps as our data: Big Hero 6, Incredibles 2, Toy Story 4, Cars 3, and Wall E. This Animation Screencaps website contains screencaps for each movie. We are scraping 30 scenes in total and 3 cap per scene, and they are all 50 seconds apart from each scene. The next section will talk in detail on how we scraped the screencaps.
+
 
 ## Code
 
 (20 points)
 
-This section will link to the various code for your project (stored within this repository). Your code should be executable on datahub, should we choose to replicate your result. This includes code for: 
+- Data acquisition/scraping: Scraping.ipynb
+  This notebook uses bs4 BeautifulSoup and requests libraries to scrape movies‘ screencaps from the Animation Screencaps website mentioned in the previous data section. You can see in the notebook that there is a scratch function that scrapes a total of 30 scenes and 3 caps per scene which are all 50 seconds apart from each scene. 
+  
+- Cleaning: Main Notebook Preprocessing and Features Extraction.ipynb
+This notebook preprocesses the scenes we scraped using the first notebook and extracts features including PAD (Pleasure, Arousal, Dominance), blur, brightness, saturation, and optical flow. We iterate all caps we scraped and we resize them to (320, 768). We then use these feature functions to find the averages of all features within each scene and compile them into a dataframe, and save them as a csv file. 
+- Analysis:
+  - Features:
+      - Brightness: We calculate the brightness for each image by calculating the mean of the third channel in image hsv format. The bigger the result, the more bright the image is. The brightness data will be used in calculating PAD (Pleasure, Arousal, Dominance). Below are the images with the biggest and smallest brightness in the movie toy story 4.
 
-- data acquisition/scraping
-- cleaning
-- analysis
-- generating results. 
-
-Link each of your notebooks or .py files within this section, and provide a brief explanation of what the code does. Reading this section we should have a sense of how to run your code.
 
 ## Results
 
